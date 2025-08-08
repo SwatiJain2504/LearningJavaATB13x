@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "207094e4-689e-48bd-a187-2397ed727b48",
+		"name": "Project#1 SOAP Project ISBN Checker",
+		"description": "This API is going to check if 10-digit ISBN number is valid or not",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13752063",
+		"_collection_link": "https://blue-comet-354778.postman.co/workspace/ATB13X~9df64144-5655-4232-9b99-5277aaf7f1b2/collection/13752063-207094e4-689e-48bd-a187-2397ed727b48?action=share&source=collection_link&creator=13752063"
+	},
+	"item": [
+		{
+			"name": "TC#1-Positive",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>99921-58-10-7</sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://webservices.daehosting.com/services/isbnservice.wso",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"daehosting",
+						"com"
+					],
+					"path": [
+						"services",
+						"isbnservice.wso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#2-Negative Invalid ISBN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>19921-58-10-7</sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://webservices.daehosting.com/services/isbnservice.wso",
+					"protocol": "https",
+					"host": [
+						"webservices",
+						"daehosting",
+						"com"
+					],
+					"path": [
+						"services",
+						"isbnservice.wso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3B727408-39C5-65DC-9AA8-6FE7F3A44500@Company",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "DGj6F2PE-nqY2uYZ0rtLrA",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password@123",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "api",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ewapps-bizact.eworkplaceapps.com/AcumaticaBiz25R1/identity/connect/token",
+					"protocol": "https",
+					"host": [
+						"ewapps-bizact",
+						"eworkplaceapps",
+						"com"
+					],
+					"path": [
+						"AcumaticaBiz25R1",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
